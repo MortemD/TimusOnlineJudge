@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class Goyda {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        byte a = in.nextByte();
+        byte b = in.nextByte();
+        byte c = in.nextByte();
+
+        short sitOne = (short) (a * b - c);
+        short sitTwo = (short) (a * b * c);
+        short sitThree = (short) (a - b - c);
+        short sitFour = (short) (a - b * c);
+
+        System.out.println(Math.min(sitOne, Math.min(sitTwo, Math.min(sitThree, sitFour)))); //Из 9 ситуация рассматриваем все без плюсов
+    }
+}
