@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        short emperorPenguin = 0;
+        short littlePenguin = 0;
+        short macaroniPenguin = 0;
+
+        String input = null;
+
+        int count = in.nextInt();
+        for(int i = 0; i < count+1; i++) {
+            input = in.nextLine();
+            if (input.equals("Emperor Penguin")) emperorPenguin++;
+            if (input.equals("Little Penguin")) littlePenguin++;
+            if (input.equals("Macaroni Penguin"))  macaroniPenguin++;
+        }
+
+        if (Math.max(Math.max(emperorPenguin, littlePenguin), macaroniPenguin) == emperorPenguin) System.out.println("Emperor Penguin");
+        if (Math.max(Math.max(emperorPenguin, littlePenguin), macaroniPenguin) == littlePenguin) System.out.println("Little Penguin");
+        if (Math.max(Math.max(emperorPenguin, littlePenguin), macaroniPenguin) == macaroniPenguin) System.out.println("Macaroni Penguin");
+    }
+}
