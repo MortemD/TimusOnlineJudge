@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        String line1 = in.nextLine();
+        String line2 = in.nextLine();
+        String line3 = in.nextLine();
+
+        String[] lines1 = line1.split("\\s");
+        String[] lines2 = line2.split("\\s");
+        String[] lines3 = line3.split("\\s");
+
+        int a1 = Integer.parseInt(lines1[0]);
+        int b1 = Integer.parseInt(lines1[1]);
+
+        int a2 = Integer.parseInt(lines2[0]);
+        int b2 = Integer.parseInt(lines2[1]);
+
+        int a3 = Integer.parseInt(lines3[0]);
+        int b3 = Integer.parseInt(lines3[1]);
+
+        int firstMan = a1 - a3;
+        int secondMan = b1 - b2;
+
+        System.out.println(firstMan + " " + secondMan);
+
+    }
+}
