@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = 0;
+        String result = "Common";
+
+        byte five = 0;
+        byte four = 0;
+
+        for(int i = 0; i < n; i++) {
+            m = in.nextInt();
+
+            if (m == 3) result = "None";
+            if (m == 5) five++;
+            if (m == 4) four++;
+        }
+
+        if (result == "Common") {
+
+            if (four == 0) result = "Named";
+            else if(five >= four) result = "High";
+        }
+
+        System.out.println(result);
+    }
+}
