@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //Chess board
+        int[][] underAttack = {
+                { 2, 3, 4, 4, 4, 4, 3, 2 },
+                { 3, 4, 6, 6, 6, 6 ,4, 3 },
+                { 4, 6, 8, 8, 8, 8, 6, 4 },
+                { 4, 6, 8, 8, 8, 8, 6, 4 },
+                { 4, 6, 8, 8, 8, 8, 6, 4 },
+                { 4, 6, 8, 8, 8, 8, 6, 4 },
+                { 3, 4, 6, 6, 6, 6, 4, 3 },
+                { 2, 3, 4, 4, 4, 4, 3, 2 }
+        };
+        int n = in.nextInt();
+        String p;
+        int count;
+
+        for(int i = 0; i < n; i++){
+            p = in.next();
+            //-1 cause array from 0
+            count = underAttack[(int)p.charAt(0) - 97][(int)p.charAt(1) - 49];
+            //Char is number where a = 97 1 = 49
+            System.out.println(count);
+        }
+    }
+}
