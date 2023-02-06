@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Timus {
+    public static boolean isSimple(int number) {
+        for(int i = 2; i * i <= number; i++) {
+            if(number % i == 0) return false;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] our = new int[15001];
+
+        int counter = 0;
+        for(int k = 2; counter < 15001; k++)
+            if (isSimple(k)) {
+                our[counter] = k;
+                counter++;
+            }
+
+
+        while (n > 0) {
+            int help = in.nextInt();
+            System.out.println(our[help - 1]);
+            n--;
+        }
+
+    }
+}
