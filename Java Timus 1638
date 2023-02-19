@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int widthBook = in.nextInt();
+        int widthCover = in.nextInt();
+        int firstNum = in.nextInt();
+        int secondNum = in.nextInt();
+
+        if (secondNum > firstNum)
+            System.out.println((secondNum - firstNum - 1) * widthBook + (secondNum - firstNum) * 2 * widthCover);
+        if (firstNum > secondNum)
+            System.out.println((firstNum - secondNum + 1) * widthBook + (firstNum - secondNum) * 2 * widthCover);
+    }
+}
