@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int n; //number amount
+    public static int[] inNums; //numbers storage
+    public static int minDiff = Integer.MAX_VALUE;
+
+    public static void variations(int first, int second, int index) {
+        //At the end we get a lot of options, each of which we subtract and find the smallest combination.
+        if (index == n) {
+            if (minDiff > Math.abs(first - second)) minDiff = Math.abs(first - second);
+        }
+         else {
+             variations(first + inNums[index], second, index + 1);
+             variations(first, second + inNums[index], index + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        //input
+        Scanner in = new Scanner(System.in);
+        n = in.nextInt();
+        inNums = new int[n];
+        for (int i = 0; i < n; i++) inNums[i] = in.nextInt();
+        //end input
+
+        //main logic
+        variations(0, 0, 0); //recursive function
+        //end main logic
+
+        //out
+        System.out.println(minDiff);
+        //end out
+    }
+}
