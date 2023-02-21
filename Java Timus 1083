@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //input part
+        Scanner in = new Scanner(System.in);
+        String line = in.nextLine();
+        String[] parts = line.split(" ");
+        int number = Integer.parseInt(parts[0]);
+        int vosklZnaki = parts[1].length();
+        //end input part
+
+        int result = 1;
+
+        while (number > 1){
+            if (number >= 1){
+                result *= number;
+            }
+            number -= vosklZnaki;
+        }
+
+        System.out.println(result);
+    }
+}
