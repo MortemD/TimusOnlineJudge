@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Timus {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+
+        int[][] M = new int[100][100]; //size
+        int x = 0;
+
+        //adding in array
+        for (int i = 0; i < 2 * N - 1; i++) {
+            for (int row = 0; row <= i && row < N; row++) {
+                int column = i - row;
+                if (column >= 0 && column < N) {
+                    M[row][column] = ++x;
+                }
+            }
+        }
+
+        //array output
+        for (int i = 0; i < N; i++) { //lines count
+            for (int j = N - 1; j >= 0; j--) //columns count
+                System.out.print(M[i][j] + " "); //one line
+            System.out.println();
+        }
+    }
+}
