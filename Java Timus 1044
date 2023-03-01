@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        if (n == 2) System.out.println(10);
+        if (n == 4) System.out.println(670);
+        if (n == 6) System.out.println(55252);
+        if (n == 8) System.out.println(4816030);
+    }
+}
+
+
+Значения для этого решения считаем в этом коде, который не принимается Timus
+import java.util.Scanner;
+
+public class Timus {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+
+        int combinations = 1;
+        int diapason = 1;
+        int[] values = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            diapason *= 10;
+            values[i] = 0;
+        }
+
+        for (int i = diapason / 10; i < diapason + diapason / 10 - 1; i++) {
+            if (checking(values, n)) combinations++;
+            nextPermutation(values, n);
+        }
+
+        System.out.println(combinations);
+    }
+
+    public static boolean checking(int[] values, int n) {
+        int sum1 = 0, sum2 = 0;
+        for (int i = 0; i < n / 2; i++) {
+            sum1 += values[i];
+            sum2 += values[n - i - 1];
+        }
+        return sum1 == sum2;
+    }
+    public static void nextPermutation(int[] values, int n) {
+        int i = n - 1;
+        while (values[i] == 9) {
+            values[i] = 0;
+            i--;
+        }
+        values[i]++;
+    }
+}
