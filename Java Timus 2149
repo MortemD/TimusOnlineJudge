@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        //input
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.next();
+
+        int[][] side = new int[2][2]; 
+        int[][] position = new int[2][2]; 
+
+        for (int i = 0; i < n; i++) {
+            boolean isLess = s.charAt(i * 5) == '<'; //if pigeon looks on left
+            side[i < n / 2 ? 0 : 1][isLess ? 1 : 0]++;
+            position[i % 2][isLess ? 1 : 0]++;
+        }
+
+        int a = Math.min(side[0][1] + side[1][0], side[0][0] + side[1][1]);
+        int b = Math.min(position[0][1] + position[1][0], position[0][0] + position[1][1]);
+        System.out.println(Math.min(a, b));
+    }
+}
