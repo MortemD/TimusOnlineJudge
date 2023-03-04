@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //pre-logic part
+        int[] A = new int[100001];
+
+        A[0] = 0;
+        A[1] = 1;
+
+        for (int i = 2; i < 100001; i++) {
+            if (i % 2 == 0) A[i] = A[i/2];
+            else A[i] = A[i/2] + A[i/2+1];
+        }
+
+        //input
+        int[] tests = new int[10];
+        int numberOfTests = 0;
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextInt()) {
+            int input = in.nextInt();
+            if (input == 0) break;
+            tests[numberOfTests++] = input;
+        }
+        
+        int maximumOut = 0;
+
+        //finding max
+        for (int i = 0; i < numberOfTests; i++) {
+            int test = tests[i];
+            for (int j = 0; j <= test; j++) {
+                if (A[j] > maximumOut) {
+                    maximumOut = A[j];
+                }
+            }
+            System.out.println(maximumOut);
+            maximumOut = 0;
+        }
+    }
+
+}
