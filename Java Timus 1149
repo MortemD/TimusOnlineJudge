@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        S(n, 1);
+    }
+
+    public static void A(int n, int position) { 
+        System.out.print("sin(" + position);
+        if (position < n) {
+            System.out.print(position % 2 == 0 ? "+" : "-");
+            A(n, position + 1);
+        }
+        System.out.print(")");
+    }
+
+    public static void S(int n, int position) { 
+        if (position < n) {
+            System.out.print("(");
+            S(n, position + 1);
+            System.out.print(")");
+        }
+        A(n + 1 - position, 1);
+        System.out.print("+" + position);
+    }
+}
